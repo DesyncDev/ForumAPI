@@ -7,7 +7,7 @@ services:
       - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__Default=Host=postgres;Port=5432;Database=forumapi_db;Username=uforum;Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=forumapi_db;Username=uforum;Password=${POSTGRES_PASSWORD}
       - ASPNETCORE_URLS=http://+:8080
     depends_on:
       postgres:
@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: uforum
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "5433:5433"
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Forum.Application.Commom.Interfaces;
+using Forum.Application.Features.Auth.Login.Command;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Forum.Application
@@ -11,12 +13,9 @@ namespace Forum.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             // MediatR
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ApplicationEntrypoint).Assembly));   
-            
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(LoginHandler).Assembly));   
+
             return services;
         }
-
-        // Referência do mediatr
-            public static class ApplicationEntrypoint { }
     }
 }
