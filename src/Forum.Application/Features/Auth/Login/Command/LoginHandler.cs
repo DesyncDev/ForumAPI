@@ -39,7 +39,7 @@ namespace Forum.Application.Features.Auth.Login.Command
         {
             var user = await _userRepo.GetUserByEmailAsync(command.Email, ct);
 
-            if (user is null || _hasher.Verify(command.Password, user.PasswordHash))
+            if (user is null || !_hasher.Verify(command.Password, user.PasswordHash))
                 return new InvalidCredentialsError();
 
             var (token, expires) = _token.GenerateAccessToken(user);

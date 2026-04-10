@@ -5,4 +5,7 @@
     <Project Path="src/Forum.Domain/Forum.Domain.csproj" />
     <Project Path="src/Forum.Infrastructure/Forum.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ForumApi.Tests/ForumApi.Tests.csproj" />
+  </Folder>
 </Solution>

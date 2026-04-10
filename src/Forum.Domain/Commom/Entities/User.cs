@@ -11,7 +11,7 @@ namespace Forum.Domain.Entities
     {
         // Constructor
         public User(string username, string email, string passwordHash,
-            string displayName, string bio)
+            string displayName, string? bio)
         {
             Id = Guid.NewGuid();
             Username = username;

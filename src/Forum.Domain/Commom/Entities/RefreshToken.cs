@@ -15,6 +15,7 @@ namespace Forum.Domain.Commom.Entities
             Token = token;
             ExpiresAt = expires;
             UserId = userId;
+            IsRevoked = false;
             CreatedAt = DateTime.UtcNow;
         }
 
@@ -28,7 +29,7 @@ namespace Forum.Domain.Commom.Entities
         public DateTime ExpiresAt { get; private set; }
         public DateTime CreatedAt { get; init; }
 
-         public bool IsRevoked { get; set; } = false;
+         public bool IsRevoked { get; set; }
 
          public Guid UserId { get; set; }
          public User User { get; set; } = null!;
