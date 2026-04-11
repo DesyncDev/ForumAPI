@@ -11,14 +11,13 @@ namespace Forum.Domain.Entities
     {
         // Constructor
         public User(string username, string email, string passwordHash,
-            string displayName, string? bio)
+            string displayName)
         {
             Id = Guid.NewGuid();
             Username = username;
             Email = email;
             PasswordHash = passwordHash;
             DisplayName = displayName;
-            Bio = bio;
             Role = UserRoles.Member;
             IsBanned = false;
             CreatedAt = DateTime.UtcNow;

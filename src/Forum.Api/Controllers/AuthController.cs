@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Forum.Application.Features.Login.Command;
+using Forum.Application.Features.Register.Command;
 using Forum.Domain.Commom.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,21 @@ namespace Forum.Api.Controllers
                 error => error.type switch
                 {
                     ErrorTypes.Unauthorized => Unauthorized(error),
+                    _ => StatusCode(500, error)
+                }
+            );
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterCommand command, CancellationToken ct)
+        {
+            var result = await _mediator.Send(command, ct);
+
+            return result.Match(
+                success => Created("/me", success),
+                error => error.type switch
+                {
+                    ErrorTypes.Conflict => Conflict(error),
                     _ => StatusCode(500, error)
                 }
             );

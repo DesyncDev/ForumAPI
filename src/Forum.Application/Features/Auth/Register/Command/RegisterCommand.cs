@@ -11,7 +11,8 @@ namespace Forum.Application.Features.Register.Command
     public sealed record RegisterCommand
     (
         string Username,
+        string DisplayName,
         string Email,
-        string DisplayName
+        string Password
     ) : IRequest<OneOf<RegisterResponse, AppError>>;
 }

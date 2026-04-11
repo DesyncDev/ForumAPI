@@ -17,8 +17,7 @@ public static class DatabaseSeeder
             username: "admin",
             email: "admin@forum.com",
             passwordHash: passwordHasher.Hash("Admin123"),
-            displayName: "Administrator",
-            bio: "System administrator"
+            displayName: "Administrator"
         );
         admin.SetAdminRole(); // Muda para Admin
 
@@ -27,8 +26,7 @@ public static class DatabaseSeeder
             username: "moderator",
             email: "moderator@forum.com",
             passwordHash: passwordHasher.Hash("Moderator123"),
-            displayName: "Moderator",
-            bio: "Forum moderator"
+            displayName: "Moderator"
         );
         moderator.SetModeratorRole();
 
@@ -37,8 +35,7 @@ public static class DatabaseSeeder
             username: "john_doe",
             email: "john@example.com",
             passwordHash: passwordHasher.Hash("User123"),
-            displayName: "John Doe",
-            bio: "Forum member"
+            displayName: "John Doe"
         );
 
         await context.users.AddRangeAsync(admin, moderator, user);

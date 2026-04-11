@@ -68,8 +68,7 @@ namespace ForumApi.Tests.Forum.Application.Features.Login
                 _faker.Internet.UserName(),
                 expectedEmail,
                 Guid.NewGuid().ToString(),
-                _faker.Person.FullName,
-                _faker.Lorem.Lines()
+                _faker.Person.FullName
             );
 
             var expectedRefreshToken = new RefreshToken(_faker.Random.AlphaNumeric(64),
@@ -141,8 +140,7 @@ namespace ForumApi.Tests.Forum.Application.Features.Login
                 _faker.Internet.UserName(),
                 expectedEmail,
                 Guid.NewGuid().ToString(),
-                _faker.Person.FullName,
-                _faker.Lorem.Lines()
+                _faker.Person.FullName
             );
 
             _userRepo.GetUserByEmailAsync(expectedEmail, Arg.Any<CancellationToken>())

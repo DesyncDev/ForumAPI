@@ -37,8 +37,7 @@ namespace ForumApi.Tests.Forum.Infrastructure.Services
             username: "testuser",
             email: "test@example.com",
             passwordHash: "hash",
-            displayName: "Test User",
-            bio: "bio"
+            displayName: "Test User"
         );
 
         [Fact]

@@ -24,15 +24,13 @@ namespace ForumApi.Tests.Forum.Domain.Commom.Entities
             var expectedEmail = _faker.Internet.Email();
             var expectedPasswordhash = Guid.NewGuid().ToString();
             var expectedDisplayName = _faker.Person.FirstName;
-            var expectedBio = _faker.Lorem.Lines();
 
             // Create user with generated infos
             var user = new User(
                 expectedUsername,
                 expectedEmail,
                 expectedPasswordhash,
-                expectedDisplayName,
-                expectedBio
+                expectedDisplayName
             );
 
             // Expected result
@@ -41,7 +39,6 @@ namespace ForumApi.Tests.Forum.Domain.Commom.Entities
             user.Email.Should().Be(expectedEmail);
             user.PasswordHash.Should().Be(expectedPasswordhash);
             user.DisplayName.Should().Be(expectedDisplayName);
-            user.Bio.Should().Be(expectedBio);
             user.Role.Should().Be(UserRoles.Member);
             user.IsBanned.Should().BeFalse();
             user.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
@@ -155,14 +152,12 @@ namespace ForumApi.Tests.Forum.Domain.Commom.Entities
             var expectedEmail = _faker.Internet.Email();
             var expectedPasswordhash = Guid.NewGuid().ToString();
             var expectedDisplayName = _faker.Person.FirstName;
-            var expectedBio = _faker.Lorem.Lines();
 
             var user = new User(
                 expectedUsername,
                 expectedEmail,
                 expectedPasswordhash,
-                expectedDisplayName,
-                expectedBio
+                expectedDisplayName
             );
 
             return user;
